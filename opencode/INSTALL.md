@@ -23,14 +23,6 @@ You can force a specific location:
 XDG_BIN_DIR=$HOME/.local/bin curl -fsSL https://opencode.ai/install | bash
 ```
 
-### Alternatives
-
-```bash
-npm install -g opencode-ai          # via npm
-brew install opencode               # Homebrew (Linuxbrew works too)
-sudo pacman -S opencode             # Arch Linux
-mise use -g opencode                # via mise
-```
 
 ## 2. Verify
 
@@ -39,6 +31,12 @@ opencode --version
 ```
 
 ## 3. Authenticate
+
+LLM configuration is provided in  `~/.config/opencode/opencode.json` 
+An exampl opencode.json is placed in this directory.
+
+Credentials are stored at `~/.local/share/opencode/auth.json`.
+An example auth.json for a local LLM is provided.
 
 Run `opencode` inside any project directory. In the TUI:
 

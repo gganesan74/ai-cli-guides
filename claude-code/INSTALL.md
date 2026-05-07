@@ -12,15 +12,6 @@ curl -fsSL https://claude.ai/install.sh | bash
 
 This drops a self-contained binary onto your PATH and configures background auto-updates. **No Node.js required.**
 
-### Alternative: npm
-
-If you need version pinning or already manage everything through npm:
-
-```bash
-npm install -g @anthropic-ai/claude-code
-```
-
-> **Don't use `sudo`** for the npm method — it creates permission and security issues. If you hit `EACCES`, configure a user-owned npm prefix (see the top-level `README.md`).
 
 ## 2. Verify
 
@@ -29,9 +20,14 @@ claude --version
 claude doctor   # diagnostic — reports any setup or configuration problems
 ```
 
-## 3. Authenticate
+## 3. Set the config files. 
 
-Run `claude` from any directory. It will open your browser to sign in to your Anthropic account (Claude Pro, Max, Team, Enterprise, or Console/API). Credentials are stored locally and persist between sessions — you won't need to re-authenticate unless you log out or your credentials expire.
+Edit the `~/.claude/settings.json`  (Example provided in this directory).
+This is a local install with a user specified LLM. So edit the settings.json file to point to the right LLM. 
+
+Project settings (for example ask Claude to use uv for running code) live in the CLAUDE.md file (one per root project directory). An example is placed in this directory. Copy and modify this for every project directory that you will use. 
+
+Where each config lives is shown in the next section. 
 
 ## 4. Where the config files live
 
@@ -65,33 +61,13 @@ Claude Code uses a **hierarchical settings system** in JSON. Settings are merged
 | `<project>/.claude/settings.local.json` | Personal API keys, local-only tweaks | ❌ No (add to `.gitignore`) |
 | `<project>/CLAUDE.md` | Project description, conventions, code style guidance | ✅ Yes |
 
-### Minimal `~/.claude/settings.json` example
-
-```json
-{
-  "env": {
-    "DISABLE_AUTOUPDATER": "0"
-  },
-  "autoUpdatesChannel": "stable"
-}
-```
-
-`autoUpdatesChannel` accepts `"latest"` (new features as soon as released) or `"stable"` (~1 week behind, skips releases with major regressions).
-
-## 5. Troubleshooting
-
-- **Settings changes not taking effect** — Close all Claude Code windows and start a fresh terminal. If still broken, validate your JSON (a stray comma silently breaks the whole file).
-- **`command not found: claude`** — If you used npm, your global npm bin isn't on PATH. Run `npm config get prefix` and add `/bin` to your PATH.
-- **Permission errors during install** — Don't use `sudo`. See the user-owned npm prefix setup in the top-level `README.md`.
-- **Anything else** — Run `claude doctor`. It auto-detects most configuration issues and suggests fixes.
+## 5. Run the code
+Run `claude` from any directory. 
 
 ## 6. Uninstall
 
 ```bash
-# If installed via native installer:
+
 claude uninstall
 
-# If installed via npm:
-npm uninstall -g @anthropic-ai/claude-code
-rm -rf ~/.claude
 ```
