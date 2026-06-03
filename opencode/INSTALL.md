@@ -100,9 +100,21 @@ Configs are **merged**, not replaced — settings from each layer combine, with 
 ```json
 {
   "$schema": "https://opencode.ai/config.json",
-  "model": "anthropic/claude-sonnet-4-5",
-  "autoupdate": true,
-  "snapshot": true
+  "provider": {
+    "vllm": {
+      "npm": "@ai-sdk/openai-compatible",
+      "name": "vLLM (local)",
+      "options": {
+        "baseURL": "http://localhost:8000/v1"
+      },
+      "models": {
+        "qwen3.6": {
+          "name": "Qwen3.6"
+        }
+      }
+    }
+  },
+  "model": "vllm/qwen3.6"
 }
 ```
 
@@ -111,14 +123,21 @@ Configs are **merged**, not replaced — settings from each layer combine, with 
 ```json
 {
   "$schema": "https://opencode.ai/config.json",
-  "model": "anthropic/claude-sonnet-4-5",
   "provider": {
-    "anthropic": {
+    "vllm": {
+      "npm": "@ai-sdk/openai-compatible",
+      "name": "vLLM (local)",
+      "options": {
+        "baseURL": "http://localhost:8000/v1"
+      },
       "models": {
-        "claude-sonnet-4-5": { "name": "Claude Sonnet 4.5" }
+        "qwen3.6": {
+          "name": "Qwen3.6"
+        }
       }
     }
-  }
+  },
+  "model": "vllm/qwen3.6"
 }
 ```
 
