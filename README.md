@@ -11,8 +11,6 @@ ai-cli-guides/
 ├── README.md                  # this file
 ├── claude-code/
 │   └── INSTALL.md             # Claude Code (Anthropic)
-├── codex/
-│   └── INSTALL.md             # Codex (OpenAI)
 └── opencode/
     └── INSTALL.md             # OpenCode (open source, multi-provider)
 ```
@@ -21,8 +19,7 @@ ai-cli-guides/
 
 | Tool        | Vendor    | Install method (recommended)              | Config format | User config path                     | Project instructions |
 |-------------|-----------|-------------------------------------------|---------------|--------------------------------------|----------------------|
-| Claude Code | Anthropic | `curl -fsSL https://claude.ai/install.sh \| bash` | JSON          | `~/.claude/settings.json`            | `CLAUDE.md`          |
-| Codex       | OpenAI    | `npm install -g @openai/codex`            | TOML          | `~/.codex/config.toml`               | `AGENTS.md`          |
+| Claude Code | Anthropic | `curl -fsSL https://claude.ai/install.sh \| bash` | JSON          | `~/.claude/settings.json`            | `CLAUDE.md`          |         |
 | OpenCode    | sst / community | `curl -fsSL https://opencode.ai/install \| bash` | JSON / JSONC | `~/.config/opencode/opencode.json`   | `AGENTS.md`          |
 
 ## Prerequisites (shared)
@@ -48,11 +45,10 @@ source ~/.bashrc
 ## Where to start
 
 - **New to terminal AI agents?** Start with `claude-code/INSTALL.md` — Anthropic's native installer is the most painless.
-- **Already use ChatGPT / OpenAI?** Start with `codex/INSTALL.md`.
 - **Want maximum flexibility / open source / multi-provider?** Start with `opencode/INSTALL.md`.
 
-You can install all three side-by-side without conflicts — they use entirely separate config directories.
+You can install both side-by-side without conflicts — they use entirely separate config directories.
 
 ## A note on `AGENTS.md` vs `CLAUDE.md`
 
-Codex and OpenCode both read `AGENTS.md` from your project root for project-specific instructions. Claude Code reads `CLAUDE.md`. If you use multiple tools in one repo, you'll likely end up with both files. They can contain similar guidance — most teams keep them in sync manually or symlink one to the other.
+OpenCode reads `AGENTS.md` from your project root for project-specific instructions. Claude Code reads `CLAUDE.md`. If you use multiple tools in one repo, you'll likely end up with both files. They can contain similar guidance — most teams keep them in sync manually or symlink one to the other.
