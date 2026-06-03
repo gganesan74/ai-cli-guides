@@ -1,6 +1,6 @@
 # AI Coding CLI Install Guides (Linux)
 
-Step-by-step install and configuration guides for the three most popular terminal AI coding agents: **Claude Code**, **Codex**, and **OpenCode**.
+Step-by-step install and configuration guides for two popular terminal AI coding agents: **Claude Code** and **OpenCode**.
 
 Each tool has its own directory with a self-contained guide.
 
