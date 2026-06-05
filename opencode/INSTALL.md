@@ -109,7 +109,7 @@ Configs are **merged**, not replaced — settings from each layer combine, with 
       },
       "models": {
         "qwen3.6": {
-          "name": "Qwen3.6"
+          "name": "Qwen Coder"
         }
       }
     }
@@ -118,7 +118,7 @@ Configs are **merged**, not replaced — settings from each layer combine, with 
 }
 ```
 
-### Project `opencode.json` example
+### Project `opencode.json` example. This contains instructions files, schema files etc. Change LLM name / path etc according to your settings. 
 
 ```json
 {
@@ -131,13 +131,15 @@ Configs are **merged**, not replaced — settings from each layer combine, with 
         "baseURL": "http://localhost:8000/v1"
       },
       "models": {
-        "qwen3.6": {
-          "name": "Qwen3.6"
+        "Qwen3-Coder-30B-A3B-Instruct": {
+          "name": "My vLLM model"
         }
       }
     }
   },
-  "model": "vllm/qwen3.6"
+  "model": "vllm/Qwen3-Coder-30B-A3B-Instruct",
+  "small_model": "vllm/Qwen3-Coder-30B-A3B-Instruct",
+  "instructions": ["CONTRIBUTING.md", "docs/guidelines.md", ".cursor/rules/*.md"]
 }
 ```
 
